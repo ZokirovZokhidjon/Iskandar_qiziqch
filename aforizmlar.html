@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Афоризмлар — Искандар Хамроқулов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #ffd700;
+            --dark-bg: rgba(0, 0, 0, 0.92);
+        }
+
+        body {
+            background-image: url('log.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: #fff;
+        }
+
+        /* Юқори қисм */
+        header {
+            background: var(--dark-bg);
+            border-bottom: 2px solid var(--gold);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        header h1 { margin: 0; color: var(--gold); font-size: 22px; text-transform: uppercase; }
+
+        .back-home {
+            position: absolute;
+            left: 15px;
+            top: 18px;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid var(--gold);
+            padding: 4px 10px;
+            border-radius: 5px;
+        }
+
+        /* Асосий блог контейнери */
+        .blog-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 30px auto;
+            gap: 25px;
+            padding: 0 15px;
+        }
+
+        /* Чап томон: Афоризм матни чиқадиган жой */
+        .content-area {
+            flex: 3;
+            background: var(--dark-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Ўнг томон: Мундарижа (Sidebar) */
+        .sidebar-list {
+            flex: 1;
+            background: var(--dark-bg);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid var(--gold);
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+        }
+
+        .sidebar-list h3 {
+            color: var(--gold);
+            font-size: 18px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .list-items {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .list-items li {
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .list-items a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 15px;
+            display: block;
+            padding: 8px 5px;
+        }
+
+        .list-items a:hover {
+            color: var(--gold);
+            background: rgba(255, 215, 0, 0.05);
+            padding-left: 10px;
+        }
+
+        /* Афоризм стили */
+        .quote-icon {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        #quote-text {
+            font-size: 24px;
+            line-height: 1.6;
+            font-style: italic;
+            color: #f0f0f0;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        #quote-category {
+            margin-top: 25px;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* МОБИЛ ВЕРСИЯ */
+        @media (max-width: 850px) {
+            .blog-container {
+                flex-direction: column;
+            }
+            .sidebar-list {
+                order: -1; /* Рўйхат тепага чиқади */
+                position: static;
+                width: auto;
+            }
+            .content-area {
+                padding: 30px 15px;
+                min-height: 300px;
+            }
+            #quote-text { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Асосий</a>
+    <h1><i class="fas fa-quote-right"></i> Хикматли сўзлар</h1>
+</header>
+
+<div class="blog-container">
+    
+    <main class="content-area" id="display-box">
+        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+        <div id="quote-text">Ўнг томондаги мундарижадан мавзуни танланг ва донишмандлар ўгитидан баҳраманд бўлинг.</div>
+        <div id="quote-category">Искандар Хамроқулов тавсия этади</div>
+    </main>
+
+    <aside class="sidebar-list">
+        <h3><i class="fas fa-book-open"></i> Мавзулар</h3>
+        <ul class="list-items">
+            <li><a href="javascript:void(0)" onclick="showQuote('Ота-она', 'Ота-онанинг дуоси — омаднинг калити, уларнинг розилиги — бахтнинг эшигидир. Уларни тириклигида қадрланг.')">Ота-она ҳақида</a></li>
+            <li><a href="javascript:void(0)" onclick="showQuote('Дўстлик', 'Чин дўст кўзгуга ўхшайди: айбингни юзингга айтади, лекин сени дунёга ёмонлаб сотиб юбормайди.')">Дўстлик қадри</a></li>
+            <li><a href="javascript:void(0)" onclick="showQuote('Вақт', 'Вақтни ўлдириш — ўз келажагингни сотиш билан баробар. Ҳар бир соат — берилган имкониятдир.')">Вақт ва имконият</a></li>
+            <li><a href="javascript:void(0)" onclick="showQuote('Илм', 'Илмсиз ўтган кун — нурсиз ўтган кечага ўхшайди. Ўрганишдан ҳеч қачон тўхтаманг.')">Илм ва маърифат</a></li>
+            <li><a href="javascript:void(0)" onclick="showQuote('Сабр', 'Сабрнинг таги тилла дейдилар, лекин ўша тиллага етиш учун темирдан ирода керак бўлади.')">Сабр ва ирода</a></li>
+        </ul>
+    </aside>
+
+</div>
+
+<script>
+    function showQuote(category, text) {
+        document.getElementById('quote-text').innerText = text;
+        document.getElementById('quote-category').innerText = "Мавзу: " + category;
+        
+        // Мобил версияда матнга автоматик тушиш
+        if(window.innerWidth < 850) {
+            document.getElementById('display-box').scrollIntoView({behavior: 'smooth'});
+        }
+
+        // Чиройли пайдо бўлиш эффекти
+        const box = document.getElementById('display-box');
+        box.style.opacity = 0;
+        setTimeout(() => {
+            box.style.transition = "opacity 0.5s";
+            box.style.opacity = 1;
+        }, 50);
+    }
+</script>
+
+</body>
+</html>

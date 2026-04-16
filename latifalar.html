@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Латифалар тўплами — Искандар Хамроқулов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #ffd700;
+            --dark-bg: rgba(0, 0, 0, 0.9);
+        }
+
+        body {
+            background-image: url('log.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: #fff;
+        }
+
+        /* Шапка */
+        header {
+            background: var(--dark-bg);
+            border-bottom: 2px solid var(--gold);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 { margin: 0; color: var(--gold); font-size: 22px; letter-spacing: 1px; }
+
+        .back-link {
+            position: absolute; left: 15px; top: 18px;
+            color: var(--gold); text-decoration: none; font-size: 14px;
+            border: 1px solid var(--gold); padding: 4px 10px; border-radius: 5px;
+        }
+
+        /* Блог Контейнери */
+        .latifa-wrapper {
+            display: flex;
+            max-width: 1200px;
+            margin: 30px auto;
+            gap: 20px;
+            padding: 0 15px;
+        }
+
+        /* Чап томон: Латифа матни */
+        .main-display {
+            flex: 3;
+            background: var(--dark-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--gold);
+            min-height: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        /* Ўнг томон: Мундарижа */
+        .sidebar-nav {
+            flex: 1;
+            background: var(--dark-bg);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid var(--gold);
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+        }
+
+        .sidebar-nav h3 {
+            color: var(--gold);
+            font-size: 18px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .latifa-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .latifa-links li {
+            margin-bottom: 10px;
+        }
+
+        .latifa-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .latifa-links a:hover {
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--gold);
+            padding-left: 15px;
+        }
+
+        /* Латифа матни стили */
+        .latifa-content h2 {
+            color: var(--gold);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .latifa-text {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #f5f5f5;
+            white-space: pre-line;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding-top: 20px;
+        }
+
+        /* Мобил адаптация */
+        @media (max-width: 800px) {
+            .latifa-wrapper { flex-direction: column; }
+            .sidebar-nav { order: -1; position: static; }
+            .main-display { padding: 25px; min-height: 250px; }
+            .latifa-text { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link"><i class="fas fa-home"></i> Асосий</a>
+    <h1><i class="fas fa-laugh-squint"></i> ЛАТИФАЛАР ТЎПЛАМИ</h1>
+</header>
+
+<div class="latifa-wrapper">
+    
+    <main class="main-display" id="latifa-box">
+        <div class="latifa-content">
+            <h2 id="l-title">Хуш келибсиз!</h2>
+            <div class="latifa-text" id="l-body">
+                Искандар Хамроқуловдан энг сара латифаларни ўқиш учун ўнг томондаги рўйхатдан бирини танланг.
+            </div>
+        </div>
+    </main>
+
+    <aside class="sidebar-nav">
+        <h3><i class="fas fa-list-ul"></i> Латифалар</h3>
+        <ul class="latifa-links">
+            <li><a href="javascript:void(0)" onclick="readLatifa('Афанди ва пул', 'Бир куни Афандидан сўрашибди:\n— Пул нима учун керак?\nАфанди жавоб берибди:\n— Пул шундай нарсаки, уни деб дўстинг сени танимай қолади, душманинг эса дарров ака-ука бўлиб олади!')">Афанди ва пул</a></li>
+            <li><a href="javascript:void(0)" onclick="readLatifa('Икки ошна', 'Икки ошна гурунглашиб ўтирибди.\nБири иккинчисидан сўрабди:\n— Ошна, хотининг билан уришиб қолсанг нима қиласан?\n— Тиззасига чўкаман!\n— Ие, мард экансан-ку, кейин-чи?\n— Кейин у каравотнинг тагидан чиқ, деб бақиришни бошлайди...')">Икки ошна</a></li>
+            <li><a href="javascript:void(0)" onclick="readLatifa('Наманганча ҳазил', 'Бир наманганлик Тошкентга бориб, таксига чиқибди.\nҲайдовчи сўрабди:\n— Ака, Наманганнинг қаеридансиз?\n— Гулзорданман!\nҲайдовчи ҳазиллашиб:\n— Ие, гул бўлсангиз, сув қуйиб туриш керак экан-да?\nНаманганлик жавоб берибди:\n— Ҳа, майли, фақат сувни бензин шахобчасидан қуясиз, гулларимиз 80-бензинда ишлайди!')">Наманганча ҳазил</a></li>
+        </ul>
+    </aside>
+
+</div>
+
+<script>
+    function readLatifa(title, content) {
+        document.getElementById('l-title').innerHTML = '<i class="fas fa-quote-left"></i> ' + title;
+        document.getElementById('l-body').innerText = content;
+
+        // Мобил верситяда автоматик матнга тушиш
+        if(window.innerWidth < 800) {
+            document.getElementById('latifa-box').scrollIntoView({behavior: 'smooth'});
+        }
+
+        // Чиройли анимация
+        const box = document.getElementById('latifa-box');
+        box.style.opacity = 0.5;
+        setTimeout(() => {
+            box.style.transition = "0.5s";
+            box.style.opacity = 1;
+        }, 50);
+    }
+</script>
+
+</body>
+</html>

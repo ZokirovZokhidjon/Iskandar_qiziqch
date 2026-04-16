@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шеърият олами — Искандар Хамроқулов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #ffd700;
+            --dark-bg: rgba(0, 0, 0, 0.9);
+        }
+
+        body {
+            background-image: url('log.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: #fff;
+        }
+
+        /* Шапка */
+        header {
+            background: var(--dark-bg);
+            border-bottom: 2px solid var(--gold);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 { margin: 0; color: var(--gold); font-size: 22px; }
+
+        .back-link {
+            position: absolute;
+            left: 15px;
+            top: 18px;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Асосий мазмун - Flexbox орқали Blogspot услуби */
+        .wrapper {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 15px;
+        }
+
+        /* Чап томон - Шеър матни */
+        .main-content {
+            flex: 3;
+            background: var(--dark-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--gold);
+            min-height: 400px;
+        }
+
+        /* Ўнг томон - Шеърлар рўйхати (Sidebar) */
+        .sidebar {
+            flex: 1;
+            background: var(--dark-bg);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid var(--gold);
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+        }
+
+        .sidebar h3 {
+            color: var(--gold);
+            font-size: 18px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .poem-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .poem-list li {
+            margin-bottom: 10px;
+        }
+
+        .poem-list a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 15px;
+            display: block;
+            padding: 5px 0;
+        }
+
+        .poem-list a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .poem-display h2 {
+            color: var(--gold);
+            border-bottom: 1px dashed var(--gold);
+            padding-bottom: 10px;
+        }
+
+        .poem-body {
+            font-size: 18px;
+            line-height: 1.8;
+            font-style: italic;
+            white-space: pre-line;
+        }
+
+        /* МОБИЛ ҚУРИЛМАЛАР УЧУН (Responsive) */
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column; /* Устма-уст тушади */
+            }
+            .sidebar {
+                order: -1; /* Рўйхат тепага чиқади */
+                position: static;
+            }
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link"><i class="fas fa-home"></i> Асосий</a>
+    <h1>ШЕЪРИЯТ ОЛАМИ</h1>
+</header>
+
+<div class="wrapper">
+    <main class="main-content">
+        <article class="poem-display" id="poem-area">
+            <h2 id="p-title">Хуш келибсиз!</h2>
+            <div class="poem-body" id="p-body">
+                Ўнг томондаги рўйхатдан шеърни танланг...
+            </div>
+        </article>
+    </main>
+
+    <aside class="sidebar">
+        <h3><i class="fas fa-list"></i> Мундарижа</h3>
+        <ul class="poem-list">
+            <li><a href="javascript:void(0)" onclick="loadPoem('Она юртим', 'Наманганим — гуллар макони,\nҲар қаричинг менга азиздир.\nСенсан шодлик, бахтим уммони,\nТупроғинг ҳам менга лазиздир.')">Она юртим</a></li>
+            <li><a href="javascript:void(0)" onclick="loadPoem('Дўстлик', 'Дўст дегани - содиқ бўлар,\nЁмон кунда мадад бўлар.\nКўнглинг ичра қуёш бўлиб,\nОғир кунда боғинг бўлар.')">Дўстлик ҳақида</a></li>
+            <li><a href="javascript:void(0)" onclick="loadPoem('Вақт', 'Ғаниматдир ҳар бир оний дам,\nЎтар-кетар ҳеч кимга боқмай.\nЯхши номинг қолсин дунёда,\nУмринг ўтсин беҳуда оқмай.')">Вақт қадри</a></li>
+        </ul>
+    </aside>
+</div>
+
+<script>
+    // Шеърни экранга чиқариш учун содда функция
+    function loadPoem(title, text) {
+        document.getElementById('p-title').innerText = title;
+        document.getElementById('p-body').innerText = text;
+        // Мобил қурилмада шеърга автоматик тушиш
+        if(window.innerWidth < 768) {
+            document.getElementById('poem-area').scrollIntoView({behavior: 'smooth'});
+        }
+    }
+</script>
+
+</body>
+</html>
