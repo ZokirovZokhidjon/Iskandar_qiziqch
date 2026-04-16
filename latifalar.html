@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,6 @@
             color: #fff;
         }
 
-        /* Шапка */
         header {
             background: var(--dark-bg);
             border-bottom: 2px solid var(--gold);
@@ -32,7 +31,7 @@
             z-index: 1000;
         }
 
-        header h1 { margin: 0; color: var(--gold); font-size: 22px; letter-spacing: 1px; }
+        header h1 { margin: 0; color: var(--gold); font-size: 22px; text-transform: uppercase; }
 
         .back-link {
             position: absolute; left: 15px; top: 18px;
@@ -40,8 +39,7 @@
             border: 1px solid var(--gold); padding: 4px 10px; border-radius: 5px;
         }
 
-        /* Блог Контейнери */
-        .latifa-wrapper {
+        .wrapper {
             display: flex;
             max-width: 1200px;
             margin: 30px auto;
@@ -49,19 +47,17 @@
             padding: 0 15px;
         }
 
-        /* Чап томон: Латифа матни */
-        .main-display {
+        .main-content {
             flex: 3;
             background: var(--dark-bg);
-            padding: 40px;
+            padding: 30px;
             border-radius: 20px;
             border: 1px solid var(--gold);
-            min-height: 400px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            min-height: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Ўнг томон: Мундарижа */
-        .sidebar-nav {
+        .sidebar {
             flex: 1;
             background: var(--dark-bg);
             padding: 20px;
@@ -72,114 +68,122 @@
             top: 90px;
         }
 
-        .sidebar-nav h3 {
+        .sidebar h3 {
             color: var(--gold);
             font-size: 18px;
             border-bottom: 2px solid var(--gold);
             padding-bottom: 10px;
             text-align: center;
-            margin-top: 0;
         }
 
-        .latifa-links {
-            list-style: none;
-            padding: 0;
-            margin-top: 15px;
+        .list-group { list-style: none; padding: 0; margin-top: 15px; }
+        .list-group li { margin-bottom: 10px; }
+        .list-group a {
+            color: #ccc; text-decoration: none; font-size: 15px;
+            display: block; padding: 8px 10px; border-radius: 5px; transition: 0.3s;
+        }
+        .list-group a:hover { background: rgba(255, 215, 0, 0.1); color: var(--gold); padding-left: 15px; }
+
+        .latifa-display h2 { color: var(--gold); border-bottom: 1px dashed var(--gold); padding-bottom: 10px; }
+        .latifa-text { font-size: 19px; line-height: 1.7; white-space: pre-line; margin: 20px 0; }
+
+        /* ВИДЕОНИ КИЧРАЙТИРИШ ВА ЎРТАГА ОЛИШ */
+        .video-box {
+            margin: 20px auto;
+            width: 70%; /* Видео кенглиги энди 70% */
+            position: relative;
+            padding-bottom: 39.37%; /* Нисбатни ҳам кичрайтирдик */
+            height: 0;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+        }
+        
+        .video-box iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        .latifa-links li {
-            margin-bottom: 10px;
-        }
-
-        .latifa-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 15px;
-            display: block;
-            padding: 8px 10px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .latifa-links a:hover {
-            background: rgba(255, 215, 0, 0.15);
-            color: var(--gold);
-            padding-left: 15px;
-        }
-
-        /* Латифа матни стили */
-        .latifa-content h2 {
-            color: var(--gold);
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .latifa-text {
-            font-size: 20px;
-            line-height: 1.7;
-            color: #f5f5f5;
-            white-space: pre-line;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            padding-top: 20px;
-        }
-
-        /* Мобил адаптация */
-        @media (max-width: 800px) {
-            .latifa-wrapper { flex-direction: column; }
-            .sidebar-nav { order: -1; position: static; }
-            .main-display { padding: 25px; min-height: 250px; }
-            .latifa-text { font-size: 18px; }
+        @media (max-width: 850px) {
+            .wrapper { flex-direction: column; }
+            .sidebar { order: -1; position: static; }
+            .main-content { padding: 20px; }
+            .video-box { width: 100%; padding-bottom: 56.25%; } /* Телфонда тўлиқ кўринади */
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="back-link"><i class="fas fa-home"></i> Асосий</a>
-    <h1><i class="fas fa-laugh-squint"></i> ЛАТИФАЛАР ТЎПЛАМИ</h1>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Ортга</a>
+    <h1>ЛАТИФАЛАР ВА ВИДЕОЛАР</h1>
 </header>
 
-<div class="latifa-wrapper">
-    
-    <main class="main-display" id="latifa-box">
-        <div class="latifa-content">
-            <h2 id="l-title">Хуш келибсиз!</h2>
+<div class="wrapper">
+    <main class="main-content" id="display-area">
+        <div class="latifa-display">
+            <h2 id="l-title">Искандар Хамроқулов видео латифалари</h2>
             <div class="latifa-text" id="l-body">
-                Искандар Хамроқуловдан энг сара латифаларни ўқиш учун ўнг томондаги рўйхатдан бирини танланг.
+                Энг сара видео чиқишлар тўплами:
+            </div>
+            
+            <div class="video-box" style="display: block;">
+                <iframe src="https://www.youtube.com/embed/qQBIwE63kJY?rel=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-box" style="display: block;">
+                <iframe src="https://www.youtube.com/embed/fkAyXEQzMxk?rel=0" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
+
+        <div class="video-box" style="display: block; margin-bottom: 20px;">
+    <iframe src="https://www.youtube.com/embed/Yl2FAly9bw8?si=4lG3rkjre37-360C frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="video-box" style="display: block; margin-bottom: 20px;">
+    <iframe src="https://www.youtube.com/embed/TSfx7BILmLo?si=qyzZzpURUT0EzpUh" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="video-box" style="display: block; margin-bottom: 20px;">
+    <iframe src="https://www.youtube.com/embed/u2oCzl_UUHA?si=4rWduneyIl29uOsA" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="video-box" style="display: block; margin-bottom: 20px;">
+    <iframe src="https://www.youtube.com/embed/_lp6ntrDDzM?si=dwAFpblQLvU-0NQW" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="video-box" style="display: block; margin-bottom: 20px;">
+    <iframe src="https://www.youtube.com/embed/ASLWc9E7kfc?si=22YbWJ_fAlDs6d6c" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="video-box" style="display: block; margin-bottom: 20px;">
+    <iframe src="https://www.youtube.com/embed/2K2oF5DvDAY?si=ENDPkoSjBmmTcR7r" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="video-box" style="display: block; margin-bottom: 20px;">
+    <iframe src="https://www.youtube.com/embed/ЮТУБ_ВИДЕО_КОДИ?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
     </main>
 
-    <aside class="sidebar-nav">
-        <h3><i class="fas fa-list-ul"></i> Латифалар</h3>
-        <ul class="latifa-links">
-            <li><a href="javascript:void(0)" onclick="readLatifa('Афанди ва пул', 'Бир куни Афандидан сўрашибди:\n— Пул нима учун керак?\nАфанди жавоб берибди:\n— Пул шундай нарсаки, уни деб дўстинг сени танимай қолади, душманинг эса дарров ака-ука бўлиб олади!')">Афанди ва пул</a></li>
-            <li><a href="javascript:void(0)" onclick="readLatifa('Икки ошна', 'Икки ошна гурунглашиб ўтирибди.\nБири иккинчисидан сўрабди:\n— Ошна, хотининг билан уришиб қолсанг нима қиласан?\n— Тиззасига чўкаман!\n— Ие, мард экансан-ку, кейин-чи?\n— Кейин у каравотнинг тагидан чиқ, деб бақиришни бошлайди...')">Икки ошна</a></li>
-            <li><a href="javascript:void(0)" onclick="readLatifa('Наманганча ҳазил', 'Бир наманганлик Тошкентга бориб, таксига чиқибди.\nҲайдовчи сўрабди:\n— Ака, Наманганнинг қаеридансиз?\n— Гулзорданман!\nҲайдовчи ҳазиллашиб:\n— Ие, гул бўлсангиз, сув қуйиб туриш керак экан-да?\nНаманганлик жавоб берибди:\n— Ҳа, майли, фақат сувни бензин шахобчасидан қуясиз, гулларимиз 80-бензинда ишлайди!')">Наманганча ҳазил</a></li>
+    <aside class="sidebar">
+        <h3><i class="fas fa-laugh"></i> Рўйхат</h3>
+        <ul class="list-group">
+            <li><a href="javascript:void(0)" onclick="loadItem('Наманганча пайров', 'Бу видеода Наманган аҳлининг ширин суҳбати ва аскияларини томоша қилишингиз мумкин.', 'nkdywdexzf3uv')">📽 Видео Латифа</a></li>
+            <li><a href="javascript:void(0)" onclick="loadItem('Афанди ва бой', 'Бой Афандига дебди:\n— Агар мени кулдирсанг, бир тилла бераман.\nАфанди:\n— Бой ота, ҳозир вақтим йўқ, тиллани бериб туринг, эртага келиб икки марта кулдираман!', null)">📖 Афанди ва бой</a></li>
+            <li><a href="javascript:void(0)" onclick="loadItem('Таксидаги гурунг', 'Бир одам таксига чиқиб, ҳайдовчига:\n— Ака, радиода Искандар қизиқчи чиқяптими, овозини баландроқ қилинг, маза қилайлик, — дебди.', null)">📖 Таксидаги ҳазил</a></li>
         </ul>
     </aside>
-
 </div>
 
 <script>
-    function readLatifa(title, content) {
-        document.getElementById('l-title').innerHTML = '<i class="fas fa-quote-left"></i> ' + title;
-        document.getElementById('l-body').innerText = content;
+    function loadItem(title, body, youtubeId) {
+        document.getElementById('l-title').innerText = title;
+        document.getElementById('l-body').innerText = body;
 
-        // Мобил верситяда автоматик матнга тушиш
-        if(window.innerWidth < 800) {
-            document.getElementById('latifa-box').scrollIntoView({behavior: 'smooth'});
+        // Биринчи видеони алмаштириш учун (агар керак бўлса)
+        const firstVideo = document.querySelector('.video-box iframe');
+        if (youtubeId && youtubeId.length > 5) {
+            firstVideo.src = "https://www.youtube.com/embed/" + youtubeId + "?rel=0&modestbranding=1";
         }
-
-        // Чиройли анимация
-        const box = document.getElementById('latifa-box');
-        box.style.opacity = 0.5;
-        setTimeout(() => {
-            box.style.transition = "0.5s";
-            box.style.opacity = 1;
-        }, 50);
+        
+        if(window.innerWidth < 850) {
+            document.getElementById('display-area').scrollIntoView({behavior: 'smooth'});
+        }
     }
 </script>
 
